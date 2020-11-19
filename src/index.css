@@ -1,4 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  user-select: none;
+  overflow: hidden;
+}
+
+.header {
+  display: fixed;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 80px;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 36pt;
+  font-weight: 900;
+  text-align: left;
+  padding-left: 20px;
+  color: #0A47FF;
+}
+
+.container {
+  display: block;
+  width: 1024px;
+  margin: 80px auto 0px auto;
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
 }
