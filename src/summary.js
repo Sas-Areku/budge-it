@@ -3,9 +3,13 @@ import React from 'react'
 export class Summary extends React.Component {
     render() {
         return (
-            <div className="summary">
+            <section className="summary">
                 <h1>Summary</h1>
-            </div>
+                <div className="spending">
+                    <h3>Spending available</h3>
+                    <p>$420</p>
+                </div>
+            </section>
         )
     }
 }
