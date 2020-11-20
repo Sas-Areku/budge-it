@@ -1,0 +1,19 @@
+@media (min-width: 0px) {
+    .category-label {
+        display: inline-block;
+        font-weight: 500;
+        font-size: 18pt;
+        margin-bottom: 10px;
+        padding: 3px 5px 4px 5px;
+    }
+
+    button {
+        float: right;
+    }
+
+    input {
+        font-weight: 500;
+        font-size: 18pt;
+        padding: 3px 5px 4px 5px;
+    }
+}

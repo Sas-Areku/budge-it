@@ -1,0 +1,42 @@
+@media (min-width: 0px) {
+    .item {
+        background-color: #EEE;
+        border-radius: 8px;
+        margin: 0px 0px 10px 20px;
+        padding: 3px 6px 3px 6px;
+    }
+
+    .item-label {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 14pt;
+    }
+
+    .item-value {
+        font-size: 14pt;
+        float: right;
+    }
+
+    /* Item Edit */
+
+    .item-edit p {
+        display: inline-block;
+        font-size: 14pt;
+        padding-right: 2px;
+    }
+
+    .item-edit input {
+        font-weight: 400;
+        font-size: 14pt;
+        padding: 3px 6px 3px 6px;
+    }
+
+    .item-label-field {
+        width: 200px;
+        margin-left: 20px;
+    }
+
+    .item-value-field {
+        width: 80px;
+    }
+}
