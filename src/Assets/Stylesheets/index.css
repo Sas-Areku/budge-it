@@ -10,7 +10,6 @@
   body {
     font-family: 'Roboto', sans-serif;
     user-select: none;
-    overflow: hidden;
   }
 
   .header {

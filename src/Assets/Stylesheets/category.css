@@ -7,11 +7,11 @@
         padding: 3px 5px 4px 5px;
     }
 
-    button {
+    .category-btn {
         float: right;
     }
 
-    input {
+    .category-field {
         font-weight: 500;
         font-size: 18pt;
         padding: 3px 5px 4px 5px;

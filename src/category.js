@@ -21,12 +21,12 @@ export class Category extends React.Component {
         return (
             <section className="category">
                 {edit ?
-                    <input className="category-edit-field" type="text" value={categoryLabel}></input>
+                    <input className="category-field" type="text" value={categoryLabel}></input>
                 :
                     <h2 className="category-label">{categoryLabel}</h2>
                 }
 
-                <button onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>
+                <button className="category-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>
 
                 {this.state.billList.map (
                     (items, i) =>
