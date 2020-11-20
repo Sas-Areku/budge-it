@@ -48,6 +48,7 @@
   button {
     display: inline-block;
     border: none;
+    outline:none;
     border-radius: 8px;
     padding: 7px 10px 7px 10px;
     font-size: 14pt;
@@ -58,6 +59,7 @@
   input {
     font-family: 'Roboto', sans-serif;
     border: none;
+    outline:none;
     border-radius: 8px;
     margin-bottom: 10px;
     background-color: #EEE;
@@ -65,6 +67,10 @@
   }
 
   input:hover {
+    background-color: #DDD;
+  }
+
+  input:focus {
     background-color: #DDD;
   }
 

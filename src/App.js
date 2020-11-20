@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Summary } from './summary'
 import { Budget } from './budget'
-import mobile from './Assets/budge-it mobile.png'
+import mobile from './Assets/Images/budge-it mobile.png'
 
 function App() {
   return (

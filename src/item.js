@@ -5,10 +5,10 @@ export class Item extends React.Component {
         const { itemLabel, itemValue } = this.props
 
         return (
-            <section className="item">
+            <div className="item">
                 <h3 className="item-label">{itemLabel}</h3>
                 <p className="item-value">${itemValue}</p>
-            </section>
+            </div>
         )
     }
 }

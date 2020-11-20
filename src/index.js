@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import './index.css'
-import './category.css'
-import './item.css'
+import './Assets/Stylesheets/index.css'
+import './Assets/Stylesheets/summary.css'
+import './Assets/Stylesheets/category.css'
+import './Assets/Stylesheets/item.css'
 
 ReactDOM.render(
   <React.StrictMode>
