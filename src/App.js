@@ -15,6 +15,7 @@ function App() {
         <Budget />
       </div>
 
+      {/* Mobile view only warning message */}
       <div className="mobile-view-only">
         <div>
           <h1>Budge-it!</h1>

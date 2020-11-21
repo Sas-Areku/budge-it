@@ -7,7 +7,7 @@ export class Summary extends React.Component {
                 <h1>Summary</h1>
                 <div className="spending">
                     <h3>Spending available</h3>
-                    <p>$420</p>
+                    <p>$526.67</p>
                 </div>
             </section>
         )
