@@ -1,38 +1,48 @@
+:root {
+    --item-font-size: 12pt;
+}
+
 @media (min-width: 0px) {
     .item {
         background-color: #EEE;
         border-radius: 8px;
-        margin: 0px 0px 10px 20px;
+        margin: 0px 0px var(--margin) 20px;
         padding: 3px 6px 3px 6px;
     }
 
     .item-label {
         display: inline-block;
         font-weight: 400;
-        font-size: 14pt;
+        font-size: var(--item-font-size);
     }
 
     .item-value {
-        font-size: 14pt;
+        font-size: var(--item-font-size);
         float: right;
+    }
+
+    .item-btn {
+        font-size: var(--item-font-size);
+        width: 26px;
+        height: 26px;
     }
 
     /* Item Edit */
 
     .item-edit p {
         display: inline-block;
-        font-size: 14pt;
+        font-size: var(--item-font-size);
         padding-right: 2px;
     }
 
     .item-edit input {
         font-weight: 400;
-        font-size: 14pt;
+        font-size: var(--item-font-size);
         padding: 3px 6px 3px 6px;
     }
 
     .item-label-field {
-        width: 200px;
+        width: 150px;
         margin-left: 20px;
     }
 

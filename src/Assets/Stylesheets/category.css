@@ -1,19 +1,33 @@
+:root {
+    --category-font-size: 14pt;
+}
+
 @media (min-width: 0px) {
     .category-label {
         display: inline-block;
         font-weight: 500;
-        font-size: 18pt;
-        margin-bottom: 10px;
+        font-size: var(--category-font-size);
+        margin-bottom: var(--margin);
         padding: 3px 5px 4px 5px;
-    }
-
-    .category-btn {
-        float: right;
     }
 
     .category-field {
+        width: 180px;
         font-weight: 500;
-        font-size: 18pt;
+        font-size: var(--category-font-size);
         padding: 3px 5px 4px 5px;
+    }
+
+    .edit-btn {
+        vertical-align: top;
+        padding: 6px 8px 6px 8px;
+        font-size: var(--item-font-size);
+        float: right;
+    }
+
+    .category-btn {
+        font-size: var(--category-font-size);
+        width: 30px;
+        height: 30px;
     }
 }
