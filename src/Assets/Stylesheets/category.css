@@ -1,5 +1,5 @@
 :root {
-    --category-font-size: 14pt;
+    --category-font-size: 16pt;
 }
 
 @media (min-width: 0px) {
@@ -20,14 +20,30 @@
 
     .edit-btn {
         vertical-align: top;
-        padding: 6px 8px 6px 8px;
+        padding: 7px 9px 7px 9px;
         font-size: var(--item-font-size);
         float: right;
     }
 
     .category-btn {
         font-size: var(--category-font-size);
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .category-total {
+        padding: var(--item-padding);
+        padding-top: 0px;
+        margin-bottom: var(--margin);
+    }
+
+    .category-total h3 {
+        display: inline-block;
+        font-size: var(--item-font-size);
+        font-weight: 500;
+    }
+
+    .category-total p {
+        display: inline-block;
     }
 }

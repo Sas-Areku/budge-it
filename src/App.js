@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { Summary } from './summary'
+import React from 'react'
 import { Budget } from './budget'
 import mobile from './Assets/Images/budge-it mobile.png'
 
@@ -11,7 +10,6 @@ function App() {
       </div>
 
       <div className="container">
-        <Summary />
         <Budget />
       </div>
 

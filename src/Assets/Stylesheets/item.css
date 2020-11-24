@@ -1,5 +1,6 @@
 :root {
     --item-font-size: 12pt;
+    --item-padding: 3px 6px 3px 6px;
 }
 
 @media (min-width: 0px) {
@@ -7,12 +8,12 @@
         background-color: #EEE;
         border-radius: 8px;
         margin: 0px 0px var(--margin) 20px;
-        padding: 3px 6px 3px 6px;
+        padding: var(--item-padding);
     }
 
     .item-label {
         display: inline-block;
-        font-weight: 400;
+        font-weight: 500;
         font-size: var(--item-font-size);
     }
 
@@ -36,14 +37,14 @@
     }
 
     .item-edit input {
-        font-weight: 400;
         font-size: var(--item-font-size);
-        padding: 3px 6px 3px 6px;
+        padding: var(--item-padding);
     }
 
     .item-label-field {
         width: 150px;
         margin-left: 20px;
+        font-weight: 500;
     }
 
     .item-value-field {

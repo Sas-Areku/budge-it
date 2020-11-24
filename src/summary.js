@@ -1,13 +1,39 @@
 import React from 'react'
 
 export class Summary extends React.Component {
+    state = {
+        netTotal: (0).toFixed(2)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.expenses !== prevProps.expenses) {
+          this.setState({ netTotal: parseFloat(2400 - this.props.expenses).toFixed(2) })
+        }
+    }
+
     render() {
+        const { expenses } = this.props
         return (
             <section className="summary">
                 <h1>Summary</h1>
+
                 <div className="spending">
                     <h3>Spending available</h3>
-                    <p>$526.67</p>
+                    <p>${this.state.netTotal}</p>
+                </div>
+
+                <div className="category">
+                    <h2 className="category-label">Net</h2>
+
+                    <div className="item">
+                        <h3 className="item-label">Income</h3>
+                        <p className="item-value">$2400.00</p>
+                    </div>
+
+                    <div className="item">
+                        <h3 className="item-label">Expenses</h3>
+                        <p className="item-value">${expenses}</p>
+                    </div>
                 </div>
             </section>
         )
