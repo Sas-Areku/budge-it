@@ -4,16 +4,25 @@ import { ItemEdit } from './itemEdit'
 
 export class Category extends React.Component {
     state = {
+        edit: false,
         itemList: [],
         itemLabel: "",
         itemValue: "",
-        edit: false
+        total: (0).toFixed(2),
     }
 
     componentDidMount() {
         // Render Item Add form if no items
         if (this.state.itemList.length < 1)
             this.setState({ edit: true })
+    }
+
+    componentDidUpdate(_, prevState) {
+        // Update totals when itemList changes
+        if(prevState.itemList !== this.state.itemList) {
+            this.setState({ total: this.state.itemList.sum("value").toFixed(2) })
+            this.props.newCategoryTotal(this.state.itemList.sum("value").toFixed(2), this.props.id)
+        }
     }
 
     // Toggle edit state
@@ -84,7 +93,7 @@ export class Category extends React.Component {
                             type="text" 
                             placeholder="Category label"
                             value={categoryLabel}
-                            onChange={(e) => this.props.editCategoryLabel(e, id)}>
+                            onChange={(e) => this.props.newCategoryLabel(e, id)}>
                         </input>
                         <button className="remove-btn category-btn" onClick={(e) => this.props.removeCategory(id, e)}> </button>
                     </>
@@ -147,6 +156,14 @@ export class Category extends React.Component {
                 :
                     ""
                 }
+
+                {/* Category total */}
+                <div className="category-total">
+                    <h3>Total:</h3>
+                    <div className="float-right">
+                        <p>${this.state.total}</p>
+                    </div>
+                </div>
             </section>
         )
     }
