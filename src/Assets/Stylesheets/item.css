@@ -5,16 +5,18 @@
 
 @media (min-width: 0px) {
     .item {
-        background-color: #EEE;
-        border-radius: 8px;
-        margin: 0px 0px var(--margin) 20px;
+        background-color: white;
+        border-radius: var(--radius);
+        margin: 0px 0px var(--category-margin) 20px;
         padding: var(--item-padding);
+        box-shadow: var(--shadow);
     }
 
     .item-label {
         display: inline-block;
         font-weight: 500;
         font-size: var(--item-font-size);
+        vertical-align: top;
     }
 
     .item-value {
@@ -42,12 +44,12 @@
     }
 
     .item-label-field {
-        width: 150px;
+        width: 120px;
         margin-left: 20px;
         font-weight: 500;
     }
 
     .item-value-field {
-        width: 80px;
+        width: 60px;
     }
 }

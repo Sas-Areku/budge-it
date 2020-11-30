@@ -2,7 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500&display=swap');
 
 :root {
-  --margin: 7px;
+  --margin: 10px;
+  --category-margin: 5px;
+  --radius: 4px;
+  --shadow: 0px 5px 10px -10px black;
 }
 
 * {
@@ -14,6 +17,7 @@
   body {
     font-family: 'Roboto', sans-serif;
     user-select: none;
+    background-color: #FFF;
   }
 
   .header {
@@ -22,7 +26,7 @@
     left: 0px;
     height: 80px;
     width: 100%;
-    background-color: white;
+    background-color: #FFF;
   }
 
   .title {
@@ -44,41 +48,43 @@
     font-weight: 600;
     font-size: 18pt;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: var(--margin);
   }
 
   button {
     display: inline-block;
     border: none;
     outline:none;
-    border-radius: 8px;
+    border-radius: var(--radius);
     background-color: #0A47FF;
+    box-shadow: var(--shadow);
     color: white;
   }
 
   input {
     font-family: 'Roboto', sans-serif;
     border: none;
-    outline:none;
-    border-radius: 8px;
-    margin-bottom: var(--margin);
-    background-color: #EEE;
+    outline: none;
+    border-radius: var(--radius);
+    margin-bottom: var(--category-margin);
+    background-color: white;
+    box-shadow: var(--shadow);
     transition: 0.2s;
   }
 
   input:hover {
-    background-color: #DDD;
+    background-color: #dbe4ff;
   }
 
   input:focus {
-    background-color: #DDD;
+    background-color: #dbe4ff;
   }
 
   .add-btn {
     background: url('../Images/add-icon.png') no-repeat;
     background-size: cover;
     background-color: #0A47FF;
-    margin-left: var(--margin);
+    margin-left: var(--category-margin);
     vertical-align: top;
   }
 
@@ -86,7 +92,7 @@
     background: url('../Images/remove-icon.png') no-repeat;
     background-size: cover;
     background-color: #ff384b;
-    margin-left: var(--margin);
+    margin-left: var(--category-margin);
     vertical-align: top;
   }
 

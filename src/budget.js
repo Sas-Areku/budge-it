@@ -87,7 +87,7 @@ export class Budget extends React.Component {
                     )}
 
                     {/* Category Add form */}
-                    <form onSubmit={this.addCategory}>
+                    <form className="category-add-form" onSubmit={this.addCategory}>
                         <input 
                             className="category-field" 
                             placeholder="Add category"

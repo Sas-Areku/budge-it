@@ -19,7 +19,7 @@ export class Summary extends React.Component {
 
                 <div className="spending">
                     <h3>Spending available</h3>
-                    <p>${this.state.netTotal}</p>
+                    <p>${this.state.netTotal / 2}</p>
                 </div>
 
                 <div className="category">
@@ -27,12 +27,20 @@ export class Summary extends React.Component {
 
                     <div className="item">
                         <h3 className="item-label">Income</h3>
-                        <p className="item-value">$2400.00</p>
+                        <p className="item-value income">+$2400.00</p>
                     </div>
 
                     <div className="item">
                         <h3 className="item-label">Expenses</h3>
-                        <p className="item-value">${expenses}</p>
+                        <p className="item-value expenses">-${expenses}</p>
+                    </div>
+
+                    {/* Net total */}
+                    <div className="category-total">
+                        <h3>Total:</h3>
+                        <div className="float-right">
+                            <p>${this.state.netTotal}</p>
+                        </div>
                     </div>
                 </div>
             </section>
