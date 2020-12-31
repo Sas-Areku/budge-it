@@ -76,11 +76,13 @@
   }
 
   input:hover {
-    background-color: #dbe4ff;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px -10px #0A47FF;
   }
 
   input:focus {
-    background-color: #dbe4ff;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 0px #0A47FF;
   }
 
   .add-btn {

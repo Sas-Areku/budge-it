@@ -7,7 +7,7 @@
     .category {
         padding: var(--category-margin);
         border-radius: var(--radius);
-        background-color: #EEE;
+        background-color: #dbe4ff;
         margin-bottom: var(--margin);
         box-shadow: var(--shadow);
     }
@@ -56,14 +56,16 @@
     }
 
     .category-add-form input {
-        background-color: #EFEFEF;
+        background-color: #dbe4ff;
     }
 
     .category-add-form input:hover {
-        background-color: #dbe4ff;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px 0px #0A47FF;
     }
 
     .category-add-form input:focus {
-        background-color: #dbe4ff;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px 0px #0A47FF;
     }
 }

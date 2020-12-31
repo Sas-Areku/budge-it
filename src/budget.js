@@ -13,9 +13,22 @@ export class Budget extends React.Component {
     }
 
     componentDidUpdate(_, prevState) {
-        // Update total expenses when categoryList changes
+        // Update when categoryList changes
         if(prevState.categoryList !== this.state.categoryList) {
+            // Set localStorage
+            const json = JSON.stringify(this.state.categoryList)
+            localStorage.setItem("categoryList", json)
+
+            // Update total expenses
             this.setState({ expenses: this.state.categoryList.sum("total").toFixed(2) })
+        }
+    }
+
+    componentDidMount() {
+        const json = localStorage.getItem("categoryList")
+        const categoryList = JSON.parse(json)
+        if (categoryList) {
+            this.setState(() => ({ categoryList }))
         }
     }
 
@@ -93,6 +106,7 @@ export class Budget extends React.Component {
                                 key={i}
                                 id={i}
                                 categoryLabel={categories.label}
+                                LOCAL_STORAGE_KEY={categories.ITEM_KEY}
                                 newCategoryLabel={this.newCategoryLabel}
                                 newCategoryTotal={this.newCategoryTotal}
                                 removeCategory={this.removeCategory}

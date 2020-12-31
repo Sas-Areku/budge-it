@@ -12,23 +12,44 @@ export class Category extends React.Component {
         total: (0).toFixed(2),
     }
 
-    componentDidMount() {
-        // Render Item Add form if no items
-        if (this.state.itemList.length < 1)
-            this.setState({ edit: true })
-    }
-
-    componentDidUpdate(_, prevState) {
-        // Update totals when itemList changes
+    componentDidUpdate(prevProps, prevState) {
+        // Update itemList changes
         if (prevState.itemList !== this.state.itemList) {
+            // Set localStorage
+            const json = JSON.stringify(this.state.itemList)
+            localStorage.setItem(this.props.LOCAL_STORAGE_KEY, json)
+
+            // Update item totals
             this.setState({ total: this.state.itemList.sum("value").toFixed(2) })
             this.props.newCategoryTotal(this.state.itemList.sum("value").toFixed(2), this.props.id)
         }
 
+        // Update on LOCAL_STORAGE_KEY change
+        if (prevProps.LOCAL_STORAGE_KEY !== this.props.LOCAL_STORAGE_KEY) {
+            // Get localStorage
+            const json = localStorage.getItem(this.props.LOCAL_STORAGE_KEY)
+            const itemList = JSON.parse(json)
+            if (itemList) 
+                this.setState(() => ({ itemList }))
+        }
+
+        // Set focus on new empty items
         if (this.state.itemList.length < 1 && !this.state.loaded) {
             document.getElementById("item-field-" + this.props.id).focus()
             this.setState({ loaded: true })
         }
+    }
+
+    componentDidMount() {
+        // Get localStorage
+        const json = localStorage.getItem(this.props.LOCAL_STORAGE_KEY)
+        const itemList = JSON.parse(json)
+        if (itemList) 
+            this.setState(() => ({ itemList }))
+
+        // Render Item Add form if no items
+        if (itemList === null)
+            this.setState({ edit: true })
     }
 
     // Toggle edit state

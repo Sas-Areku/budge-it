@@ -6,7 +6,7 @@ export class Summary extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.expenses !== prevProps.expenses) {
+        if (this.props !== prevProps) {
           this.setState({ netTotal: parseFloat(this.props.income - this.props.expenses).toFixed(2) })
         }
     }
@@ -17,11 +17,13 @@ export class Summary extends React.Component {
             <section className="summary">
                 <h1>Summary</h1>
 
+                {/* Spending available */}
                 <div className="spending">
                     <h3>Spending available</h3>
                     <p>${this.state.netTotal / 2}</p>
                 </div>
 
+                {/* Income category */}
                 <div className="category">
                     <h2 className="category-label">Net</h2>
 
