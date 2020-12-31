@@ -1,6 +1,7 @@
 import React from 'react'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
+import { Arrow } from 'Assets/Images/arrow-black.png'
 
 export class Category extends React.Component {
     state = {
