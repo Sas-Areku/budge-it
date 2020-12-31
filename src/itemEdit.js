@@ -22,7 +22,10 @@ export class ItemEdit extends React.Component {
                         value={itemValue}
                         onChange={(e) => this.props.editItemValue(e, id)}>
                     </input>
-                    <button className="remove-btn item-btn"></button>
+                    <button 
+                        className="remove-btn item-btn"
+                        onClick={(e) => this.props.removeItem(this.props.id, e)}>
+                    </button>
                 </div>
             </div>
         )
