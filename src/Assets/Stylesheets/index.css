@@ -17,7 +17,6 @@
   body {
     font-family: 'Roboto', sans-serif;
     user-select: none;
-    background-color: #FFF;
   }
 
   .header {
@@ -26,7 +25,10 @@
     left: 0px;
     height: 80px;
     width: 100%;
-    background-color: #FFF;
+    padding-bottom: 100px;
+    color: white;
+    background-color: #0A47FF;
+    z-index: -1;
   }
 
   .title {
@@ -35,13 +37,14 @@
     font-weight: 800;
     text-align: left;
     padding: 10px 0px 0px 20px;
-    color: #0A47FF;
   }
 
   .container {
     display: block;
     margin-top: 80px;
     padding: 10px;
+    border-radius: 40px;
+    background-color: white;
   }
 
   h1 {

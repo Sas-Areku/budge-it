@@ -6,9 +6,9 @@
 @media (min-width: 0px) {
     .item {
         background-color: white;
-        border-radius: var(--radius);
-        margin: 0px 0px var(--category-margin) 20px;
+        margin: 0px 0px 5px 20px;
         padding: var(--item-padding);
+        border-radius: var(--radius);
         box-shadow: var(--shadow);
     }
 

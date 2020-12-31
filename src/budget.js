@@ -1,6 +1,7 @@
 import React from 'react'
 import { Summary } from './summary'
 import { Category } from './category'
+import { Income } from './income'
 import uuid from 'react-uuid'
 
 export class Budget extends React.Component {
@@ -8,6 +9,7 @@ export class Budget extends React.Component {
         categoryList: [],
         categoryLabel: "",
         expenses: (0).toFixed(2),
+        income: (0).toFixed(2),
     }
 
     componentDidUpdate(_, prevState) {
@@ -57,6 +59,10 @@ export class Budget extends React.Component {
         this.setState({ categoryList })
     }
 
+    // New income total
+    newIncomeTotal = c =>
+        this.setState({ income: c })
+
     // Remove categoryList element
     removeCategory = (id, e) => {
         this.setState(prevState => ({
@@ -68,10 +74,17 @@ export class Budget extends React.Component {
     render() {
         return (
             <div className="wrapper">
-                <Summary expenses={this.state.expenses} />
+                <Summary 
+                    expenses={this.state.expenses} 
+                    income={this.state.income}
+                />
 
                 <div className="budget">
                     <h1>Budget</h1>
+
+                    <Income 
+                        newIncomeTotal={this.newIncomeTotal}
+                    />
 
                     {/* Render all categories */}
                     {this.state.categoryList.map (

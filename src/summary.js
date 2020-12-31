@@ -7,12 +7,12 @@ export class Summary extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.expenses !== prevProps.expenses) {
-          this.setState({ netTotal: parseFloat(2400 - this.props.expenses).toFixed(2) })
+          this.setState({ netTotal: parseFloat(this.props.income - this.props.expenses).toFixed(2) })
         }
     }
 
     render() {
-        const { expenses } = this.props
+        const { expenses, income } = this.props
         return (
             <section className="summary">
                 <h1>Summary</h1>
@@ -27,7 +27,7 @@ export class Summary extends React.Component {
 
                     <div className="item">
                         <h3 className="item-label">Income</h3>
-                        <p className="item-value income">+$2400.00</p>
+                        <p className="item-value income">+${income}</p>
                     </div>
 
                     <div className="item">

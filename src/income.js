@@ -2,7 +2,7 @@ import React from 'react'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
 
-export class Category extends React.Component {
+export class Income extends React.Component {
     state = {
         edit: false,
         itemList: [],
@@ -22,7 +22,7 @@ export class Category extends React.Component {
         // Update totals when itemList changes
         if (prevState.itemList !== this.state.itemList) {
             this.setState({ total: this.state.itemList.sum("value").toFixed(2) })
-            this.props.newCategoryTotal(this.state.itemList.sum("value").toFixed(2), this.props.id)
+            this.props.newIncomeTotal(this.state.itemList.sum("value").toFixed(2))
         }
 
         if (this.state.itemList.length < 1 && !this.state.loaded) {
@@ -87,26 +87,12 @@ export class Category extends React.Component {
     }
 
     render() {
-        const { categoryLabel, id } = this.props
+        const { id } = this.props
         const { edit } = this.state
 
         return (
             <section className="category">
-                {edit ?
-                    <>
-                        {/* Category edit form */}
-                        <input 
-                            className="category-field" 
-                            type="text" 
-                            placeholder="Category label"
-                            value={categoryLabel}
-                            onChange={(e) => this.props.newCategoryLabel(e, id)}>
-                        </input>
-                        <button className="remove-btn category-btn" onClick={(e) => this.props.removeCategory(id, e)}> </button>
-                    </>
-                :
-                    <h2 className="category-label">{categoryLabel}</h2>
-                }
+                <h2 className="category-label">Income</h2>
 
                 <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>
 

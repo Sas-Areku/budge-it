@@ -7,7 +7,7 @@
     .category {
         padding: var(--category-margin);
         border-radius: var(--radius);
-        background-color: #EFEFEF;
+        background-color: #EEE;
         margin-bottom: var(--margin);
         box-shadow: var(--shadow);
     }
