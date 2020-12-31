@@ -1,7 +1,7 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
-import { Arrow } from 'Assets/Images/arrow-black.png'
 
 export class Category extends React.Component {
     state = {
@@ -10,6 +10,7 @@ export class Category extends React.Component {
         itemLabel: "",
         itemValue: "",
         loaded: false,
+        collapsed: true,
         total: (0).toFixed(2),
     }
 
@@ -49,14 +50,21 @@ export class Category extends React.Component {
             this.setState(() => ({ itemList }))
 
         // Render Item Add form if no items
-        if (itemList === null)
-            this.setState({ edit: true })
+        if (itemList === null || itemList.length < 1)
+            this.setState({ edit: true, collapsed: false })
     }
 
     // Toggle edit state
     toggleEdit = () => {
         this.setState( prevState => ({
             edit: !prevState.edit
+        }))
+    }
+
+    // Toggle collapsed state
+    toggleCollapse = () => {
+        this.setState( prevState => ({
+            collapsed: !prevState.collapsed
         }))
     }
 
@@ -110,10 +118,10 @@ export class Category extends React.Component {
 
     render() {
         const { categoryLabel, id } = this.props
-        const { edit } = this.state
+        const { edit, collapsed } = this.state
 
         return (
-            <section className="category">
+            <section className={collapsed ? "category collapsed" : "category expanded"}>
                 {edit ?
                     <>
                         {/* Category edit form */}
@@ -127,10 +135,13 @@ export class Category extends React.Component {
                         <button className="remove-btn category-btn" onClick={(e) => this.props.removeCategory(id, e)}> </button>
                     </>
                 :
-                    <h2 className="category-label">{categoryLabel}</h2>
+                    <div className="category-label-wrapper" onClick={this.toggleCollapse}>
+                        <h2 className="category-label">{categoryLabel}</h2>
+                        <div className={collapsed ? "category-arrow collapsed" : "category-arrow expanded"}></div>
+                    </div>
                 }
 
-                <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>
+                {collapsed ? "" : <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>}
 
                 {/* Render all items */}
                 {this.state.itemList.map (
@@ -188,12 +199,18 @@ export class Category extends React.Component {
                 }
 
                 {/* Category total */}
-                <div className="category-total">
-                    <h3>Total:</h3>
-                    <div className="float-right">
+                {collapsed ?
+                    <div className="category-total collapsed">
                         <p>${this.state.total}</p>
                     </div>
-                </div>
+                :
+                    <div className="category-total">
+                        <h3>Total:</h3>
+                        <div className="float-right">
+                            <p>${this.state.total}</p>
+                        </div>
+                    </div>
+                }
             </section>
         )
     }

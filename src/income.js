@@ -9,6 +9,7 @@ export class Income extends React.Component {
         itemLabel: "",
         itemValue: "",
         loaded: false,
+        collapsed: true,
         total: (0).toFixed(2),
     }
 
@@ -39,8 +40,8 @@ export class Income extends React.Component {
             this.setState(() => ({ itemList }))
 
         // Render Item Add form if no items
-        if (itemList === null) {
-            this.setState({ edit: true })
+        if (itemList === null || itemList.length < 1) {
+            this.setState({ edit: true, collapsed: false })
         }
     }
 
@@ -48,6 +49,13 @@ export class Income extends React.Component {
     toggleEdit = () => {
         this.setState( prevState => ({
             edit: !prevState.edit
+        }))
+    }
+
+    // Toggle collapsed state
+    toggleCollapse = () => {
+        this.setState( prevState => ({
+            collapsed: !prevState.collapsed
         }))
     }
 
@@ -101,13 +109,16 @@ export class Income extends React.Component {
 
     render() {
         const { id } = this.props
-        const { edit } = this.state
+        const { edit, collapsed } = this.state
 
         return (
-            <section className="category">
-                <h2 className="category-label">Income</h2>
+            <section className={collapsed ? "category collapsed" : "category expanded"}>
+                <div className="category-label-wrapper" onClick={this.toggleCollapse}>
+                    <h2 className="category-label">Income</h2>
+                    <div className={collapsed ? "category-arrow collapsed" : "category-arrow expanded"}></div>
+                </div>
 
-                <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>
+                {collapsed ? "" : <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>}
 
                 {/* Render all items */}
                 {this.state.itemList.map (
@@ -165,12 +176,18 @@ export class Income extends React.Component {
                 }
 
                 {/* Category total */}
-                <div className="category-total">
-                    <h3>Total:</h3>
-                    <div className="float-right">
+                {collapsed ?
+                    <div className="category-total collapsed">
                         <p>${this.state.total}</p>
                     </div>
-                </div>
+                :
+                    <div className="category-total">
+                        <h3>Total:</h3>
+                        <div className="float-right">
+                            <p>${this.state.total}</p>
+                        </div>
+                    </div>
+                }
             </section>
         )
     }

@@ -5,11 +5,21 @@
 @media (min-width: 0px) {
 
     .category {
+        position: relative;
         padding: var(--category-margin);
         border-radius: var(--radius);
         background-color: #dbe4ff;
         margin-bottom: var(--margin);
         box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .category.collapsed {
+        height: 32px;
+    }
+
+    .category.expanded {
+        height: auto;
     }
 
     .category-label {
@@ -18,6 +28,28 @@
         font-size: var(--category-font-size);
         margin-bottom: var(--category-margin);
         padding: 3px 5px 4px 5px;
+    }
+
+    .category-arrow {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: url('../Images/arrow-black.png') no-repeat;
+        background-size: cover;
+        image-rendering: pixelated;
+        transition: transform 200ms;
+    }
+    
+    .category-arrow.expanded {
+      transform: rotate(0deg);
+    }
+    
+    .category-arrow.collapsed {
+      transform: rotate(-90deg);
+    }
+
+    .category-label-wrapper {
+        display: inline-block;
     }
 
     .category-field {
@@ -42,6 +74,12 @@
 
     .category-total {
         padding: 0px var(--category-margin) 0px var(--category-margin);
+    }
+
+    .category-total.collapsed {
+        position: absolute;
+        top: 11px;
+        right: 5px;
     }
 
     .category-total h3 {
