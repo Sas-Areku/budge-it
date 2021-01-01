@@ -1,6 +1,22 @@
 import React from 'react'
 
 export class ItemEdit extends React.Component {
+    state = {
+        remove: false
+    }
+
+    // Toggle edit state
+    toggleRemove = () => {
+        this.setState( prevState => ({
+            remove: !prevState.remove
+        }))
+    }
+
+    confirmRemove = (e) => {
+        this.props.removeItem(this.props.id, e)
+        this.setState({ remove: false })
+    }
+
     render() {
         const { itemLabel, itemValue, id } = this.props
 
@@ -22,10 +38,19 @@ export class ItemEdit extends React.Component {
                         value={itemValue}
                         onChange={(e) => this.props.editItemValue(e, id)}>
                     </input>
-                    <button 
-                        className="remove-btn item-btn"
-                        onClick={(e) => this.props.removeItem(this.props.id, e)}>
-                    </button>
+
+                    {this.state.remove ?
+                        <button
+                            className="confirm-remove-btn"
+                            onClick={(e) => this.confirmRemove(e)}>
+                                Confirm?
+                        </button>   
+                    :
+                        <button 
+                            className="remove-btn item-btn"
+                            onClick={this.toggleRemove}>
+                        </button>
+                    }
                 </div>
             </div>
         )

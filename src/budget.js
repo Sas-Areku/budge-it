@@ -25,6 +25,7 @@ export class Budget extends React.Component {
     }
 
     componentDidMount() {
+        // Get localStorage and load categories
         const json = localStorage.getItem("categoryList")
         const categoryList = JSON.parse(json)
         if (categoryList) {
@@ -81,6 +82,10 @@ export class Budget extends React.Component {
         this.setState(prevState => ({
             categoryList: prevState.categoryList.filter((_, i) => i !== id)
         }))
+
+        // Remove items from category upon deletion
+        localStorage.removeItem(this.state.categoryList[id].ITEM_KEY)
+
         e.preventDefault()
     }
 

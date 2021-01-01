@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div className="header">
-        <h1 className="title">Budget-it!</h1>
+        <h1 className="title">Budge-it!</h1>
       </div>
 
       <div className="container">
@@ -18,7 +18,7 @@ function App() {
         <div>
           <h1>Budge-it!</h1>
           <p>(Currently only available on mobile)</p>
-          <img src={mobile}></img>
+          <img alt="mobile splashscreen" src={mobile}></img>
         </div>
       </div>
     </>

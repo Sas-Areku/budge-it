@@ -1,6 +1,7 @@
 import React from 'react'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
+import uuid from 'react-uuid'
 
 export class Income extends React.Component {
     state = {
@@ -123,10 +124,9 @@ export class Income extends React.Component {
                 {/* Render all items */}
                 {this.state.itemList.map (
                     (items, i) =>
-                        <>
-                            {edit ? 
+                            edit ? 
                                 <ItemEdit 
-                                    key={i}
+                                    key={uuid()}
                                     id={i}
                                     itemLabel={items.label}
                                     itemValue={items.value}
@@ -136,13 +136,11 @@ export class Income extends React.Component {
                                 />
                             : 
                                 <Item 
-                                    key={i}
+                                    key={uuid()}
                                     id={i}
                                     itemLabel={items.label}
                                     itemValue={items.value}
                                 />
-                            }
-                        </>
                 )}
 
                 {/* Item Add form */}

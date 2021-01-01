@@ -2,6 +2,8 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
+import { RemoveModal } from './removeModal'
+import uuid from 'react-uuid'
 
 export class Category extends React.Component {
     state = {
@@ -11,6 +13,7 @@ export class Category extends React.Component {
         itemValue: "",
         loaded: false,
         collapsed: true,
+        remove: false,
         total: (0).toFixed(2),
     }
 
@@ -116,9 +119,22 @@ export class Category extends React.Component {
         e.preventDefault()
     }
 
+    // Toggle edit state
+    toggleRemove = () => {
+        this.setState( prevState => ({
+            remove: !prevState.remove
+        }))
+    }
+
+    // Confirm remove
+    confirmRemove = (e) => {
+        this.props.removeCategory(this.props.id, e)
+        this.setState({ remove: false })
+    }
+
     render() {
         const { categoryLabel, id } = this.props
-        const { edit, collapsed } = this.state
+        const { edit, collapsed, remove } = this.state
 
         return (
             <section className={collapsed ? "category collapsed" : "category expanded"}>
@@ -132,7 +148,7 @@ export class Category extends React.Component {
                             value={categoryLabel}
                             onChange={(e) => this.props.newCategoryLabel(e, id)}>
                         </input>
-                        <button className="remove-btn category-btn" onClick={(e) => this.props.removeCategory(id, e)}> </button>
+                        <button className="remove-btn category-btn" onClick={() => this.toggleRemove()}> </button>
                     </>
                 :
                     <div className="category-label-wrapper" onClick={this.toggleCollapse}>
@@ -146,26 +162,23 @@ export class Category extends React.Component {
                 {/* Render all items */}
                 {this.state.itemList.map (
                     (items, i) =>
-                        <>
-                            {edit ? 
-                                <ItemEdit 
-                                    key={i}
-                                    id={i}
-                                    itemLabel={items.label}
-                                    itemValue={items.value}
-                                    editItemLabel={this.editItemLabel}
-                                    editItemValue={this.editItemValue}
-                                    removeItem={this.removeItem}
-                                />
-                            : 
-                                <Item 
-                                    key={i}
-                                    id={i}
-                                    itemLabel={items.label}
-                                    itemValue={items.value}
-                                />
-                            }
-                        </>
+                        edit ? 
+                            <ItemEdit 
+                                key={uuid()}
+                                id={i}
+                                itemLabel={items.label}
+                                itemValue={items.value}
+                                editItemLabel={this.editItemLabel}
+                                editItemValue={this.editItemValue}
+                                removeItem={this.removeItem}
+                            />
+                        : 
+                            <Item 
+                                key={uuid()}
+                                id={i}
+                                itemLabel={items.label}
+                                itemValue={items.value}
+                            />
                 )}
 
                 {/* Item Add form */}
@@ -210,6 +223,16 @@ export class Category extends React.Component {
                             <p>${this.state.total}</p>
                         </div>
                     </div>
+                }
+
+                {/* Remove modal */}
+                {remove ? 
+                    <RemoveModal
+                        confirmRemove={this.confirmRemove}
+                        toggleRemove={this.toggleRemove}
+                    />
+                :
+                    ""
                 }
             </section>
         )
