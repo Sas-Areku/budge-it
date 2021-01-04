@@ -1,7 +1,6 @@
 import React from 'react'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
-import uuid from 'react-uuid'
 
 export class Income extends React.Component {
     state = {
@@ -119,14 +118,14 @@ export class Income extends React.Component {
                     <div className={collapsed ? "category-arrow collapsed" : "category-arrow expanded"}></div>
                 </div>
 
-                {collapsed ? "" : <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>}
+                {collapsed ? "" : <button className={edit ? "edit-btn confirm-btn" : "edit-btn" } onClick={this.toggleEdit}></button>}
 
                 {/* Render all items */}
                 {this.state.itemList.map (
                     (items, i) =>
                             edit ? 
                                 <ItemEdit 
-                                    key={uuid()}
+                                    key={i}
                                     id={i}
                                     itemLabel={items.label}
                                     itemValue={items.value}
@@ -136,7 +135,7 @@ export class Income extends React.Component {
                                 />
                             : 
                                 <Item 
-                                    key={uuid()}
+                                    key={i}
                                     id={i}
                                     itemLabel={items.label}
                                     itemValue={items.value}

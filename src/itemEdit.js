@@ -17,12 +17,18 @@ export class ItemEdit extends React.Component {
         this.setState({ remove: false })
     }
 
+    cancelRemove = () => {
+        if (this.state.remove) {
+            this.setState({ remove: false })
+        }
+    }
+
     render() {
         const { itemLabel, itemValue, id } = this.props
 
         return (
             // Item edit form
-            <div className="item-edit">
+            <div className="item-edit" onClick={this.cancelRemove}>
                 <input
                     className="item-label-field" 
                     type="text" 
@@ -40,11 +46,13 @@ export class ItemEdit extends React.Component {
                     </input>
 
                     {this.state.remove ?
-                        <button
-                            className="confirm-remove-btn"
-                            onClick={(e) => this.confirmRemove(e)}>
-                                Confirm?
-                        </button>   
+                        <div className="item-remove-wrapper">
+                            <button
+                                className="remove-btn confirm-btn item-btn"
+                                onClick={(e) => this.confirmRemove(e)}>
+                            </button>  
+                            <div className="item-remove-prompt">Are you sure?</div>
+                        </div> 
                     :
                         <button 
                             className="remove-btn item-btn"

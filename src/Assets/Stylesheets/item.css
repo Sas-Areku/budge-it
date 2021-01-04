@@ -5,16 +5,16 @@
 
 @media (min-width: 0px) {
     .item {
-        background-color: white;
         margin: 0px 0px 5px 20px;
         padding: var(--item-padding);
+        background-color: #eee;
         border-radius: var(--radius);
         box-shadow: var(--shadow);
     }
 
     .item-label {
         display: inline-block;
-        font-weight: 500;
+        font-weight: 400;
         font-size: var(--item-font-size);
         vertical-align: top;
     }
@@ -46,10 +46,36 @@
     .item-label-field {
         width: 120px;
         margin-left: 20px;
-        font-weight: 500;
+        font-weight: 400;
     }
 
     .item-value-field {
         width: 60px;
     }
+
+    .item-remove-wrapper {
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+        margin-right: 5px;
+        width: 26px;
+        height: 26px;
+      }
+    
+      .item-remove-prompt {
+        position: absolute;
+        width: 96px;
+        top: 0px;
+        left: -107px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: var(--item-padding);
+        border-radius: var(--radius);
+        animation: slide 200ms;
+      }
+      
+      @keyframes slide {
+        from { left: -82px; opacity: 0;}
+        to { left: -107px; opacity: 1;}
+      }
 }

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@500;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 :root {
   --margin: 10px;
   --category-margin: 5px;
-  --radius: 4px;
-  --shadow: 0px 5px 10px -10px black;
+  --radius: 8px;
+  --hadow: 0px 5px 10px -10px black;
 }
 
 * {
@@ -17,6 +17,7 @@
   body {
     font-family: 'Roboto', sans-serif;
     user-select: none;
+    background-color: #eaeaea;
   }
 
   .header {
@@ -44,11 +45,11 @@
     margin-top: 80px;
     padding: 10px;
     border-radius: 40px;
-    background-color: white;
+    background-color: #eaeaea;
   }
 
   h1 {
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18pt;
     text-align: center;
     padding-bottom: var(--margin);
@@ -58,7 +59,7 @@
     display: inline-block;
     border: none;
     outline:none;
-    border-radius: var(--radius);
+    border-radius: 100px;
     background-color: #0A47FF;
     box-shadow: var(--shadow);
     color: white;
@@ -70,23 +71,23 @@
     outline: none;
     border-radius: var(--radius);
     margin-bottom: var(--category-margin);
-    background-color: white;
+    background-color: #eee;
     box-shadow: var(--shadow);
     transition: 0.2s;
   }
 
   input:hover {
     background-color: #fff;
-    box-shadow: 0px 0px 10px -10px #0A47FF;
+    box-shadow: 0px 0px 3px 0px #0A47FF;
   }
 
   input:focus {
     background-color: #fff;
-    box-shadow: 0px 0px 5px 0px #0A47FF;
+    box-shadow: 0px 0px 3px 0px #0A47FF;
   }
 
   .add-btn {
-    background: url('../Images/add-icon.png') no-repeat;
+    background: url('../Images/add\ icon.png') no-repeat;
     background-size: cover;
     background-color: #0A47FF;
     margin-left: var(--category-margin);
@@ -94,18 +95,17 @@
   }
 
   .remove-btn {
-    background: url('../Images/remove-icon.png') no-repeat;
+    background: url('../Images/remove\ icon.png') no-repeat;
     background-size: cover;
     background-color: #ff384b;
     margin-left: var(--category-margin);
     vertical-align: top;
   }
 
-  .confirm-remove-btn {
-    background-color: #ff384b;
-    margin-left: var(--category-margin);
-    vertical-align: top;
-    padding: 5px 7px 5px 7px;
+  .remove-btn.confirm-btn {
+    background: url('../Images/check\ icon.png') no-repeat;
+    background-size: cover;
+    background-color: #00e271;
   }
 
   .float-right {

@@ -1,9 +1,7 @@
 import React from 'react'
-import { createPortal } from 'react-dom'
 import { Item } from './item'
 import { ItemEdit } from './itemEdit'
 import { RemoveModal } from './removeModal'
-import uuid from 'react-uuid'
 
 export class Category extends React.Component {
     state = {
@@ -14,7 +12,7 @@ export class Category extends React.Component {
         loaded: false,
         collapsed: true,
         remove: false,
-        total: (0).toFixed(2),
+        total: 0,
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -25,8 +23,8 @@ export class Category extends React.Component {
             localStorage.setItem(this.props.LOCAL_STORAGE_KEY, json)
 
             // Update item totals
-            this.setState({ total: this.state.itemList.sum("value").toFixed(2) })
-            this.props.newCategoryTotal(this.state.itemList.sum("value").toFixed(2), this.props.id)
+            this.setState({ total: this.state.itemList.sum("value") })
+            this.props.newCategoryTotal(this.state.itemList.sum("value"), this.props.id)
         }
 
         // Update on LOCAL_STORAGE_KEY change
@@ -97,8 +95,10 @@ export class Category extends React.Component {
     editItemLabel = (e, i) => {
         let itemList = [...this.state.itemList]
         let item = {...itemList[i]}
+
         item.label = e.target.value
         itemList[i] = item
+
         this.setState({ itemList })
     }
 
@@ -129,7 +129,7 @@ export class Category extends React.Component {
     // Confirm remove
     confirmRemove = (e) => {
         this.props.removeCategory(this.props.id, e)
-        this.setState({ remove: false })
+        this.setState({ remove: false, edit: false })
     }
 
     render() {
@@ -157,14 +157,14 @@ export class Category extends React.Component {
                     </div>
                 }
 
-                {collapsed ? "" : <button className="edit-btn" onClick={this.toggleEdit}>{edit ? "Update" : "Edit"}</button>}
+                {collapsed ? "" : <button className={edit ? "edit-btn confirm-btn" : "edit-btn" } onClick={this.toggleEdit}></button>}
 
                 {/* Render all items */}
                 {this.state.itemList.map (
                     (items, i) =>
                         edit ? 
                             <ItemEdit 
-                                key={uuid()}
+                                key={i}
                                 id={i}
                                 itemLabel={items.label}
                                 itemValue={items.value}
@@ -174,7 +174,7 @@ export class Category extends React.Component {
                             />
                         : 
                             <Item 
-                                key={uuid()}
+                                key={i}
                                 id={i}
                                 itemLabel={items.label}
                                 itemValue={items.value}
@@ -214,13 +214,13 @@ export class Category extends React.Component {
                 {/* Category total */}
                 {collapsed ?
                     <div className="category-total collapsed">
-                        <p>${this.state.total}</p>
+                        <p>${this.state.total.toFixed(2)}</p>
                     </div>
                 :
                     <div className="category-total">
                         <h3>Total:</h3>
                         <div className="float-right">
-                            <p>${this.state.total}</p>
+                            <p>${this.state.total.toFixed(2)}</p>
                         </div>
                     </div>
                 }

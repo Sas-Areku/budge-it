@@ -7,15 +7,17 @@
     .category {
         position: relative;
         padding: var(--category-margin);
-        border-radius: var(--radius);
-        background-color: #dbe4ff;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        background-color: white;
         margin-bottom: var(--margin);
-        box-shadow: var(--shadow);
         overflow: hidden;
     }
 
     .category.collapsed {
         height: 32px;
+        background-color: white;
+        box-shadow: var(--shadow);
     }
 
     .category.expanded {
@@ -24,7 +26,7 @@
 
     .category-label {
         display: inline-block;
-        font-weight: 500;
+        font-weight: 400;
         font-size: var(--category-font-size);
         margin-bottom: var(--category-margin);
         padding: 3px 5px 4px 5px;
@@ -54,16 +56,26 @@
 
     .category-field {
         width: 140px;
-        font-weight: 500;
+        font-weight: 400;
         font-size: var(--category-font-size);
         padding: 3px 5px 4px 5px;
     }
 
     .edit-btn {
         vertical-align: top;
-        padding: 7px 9px 7px 9px;
+        background: url('../Images/edit\ icon\ white.png') no-repeat;
+        background-size: cover;
+        background-color: #0A47FF;
+        width: 32px;
+        height: 32px;
         font-size: var(--item-font-size);
         float: right;
+    }
+
+    .edit-btn.confirm-btn {
+        background: url('../Images/check\ icon.png') no-repeat;
+        background-size: cover;
+        background-color: #00e271;
     }
 
     .category-btn {
@@ -85,7 +97,7 @@
     .category-total h3 {
         display: inline-block;
         font-size: var(--item-font-size);
-        font-weight: 500;
+        font-weight: 400;
     }
 
     .category-total p {
@@ -93,8 +105,15 @@
         display: inline-block;
     }
 
+    .category-add-form {
+        display: inline-block;
+    }
+
     .category-add-form input {
-        background-color: #dbe4ff;
+        margin: 0px;
+        padding: var(--category-margin);
+        background-color: white;
+        border: 1px solid #ccc;
     }
 
     .category-add-form input:hover {
@@ -105,6 +124,9 @@
     .category-add-form input:focus {
         background-color: #fff;
         box-shadow: 0px 0px 5px 0px #0A47FF;
+    }
+    .category-add-form button {
+        margin-top: 2px;
     }
 
     .remove-modal-container {
@@ -131,7 +153,7 @@
         box-sizing: border-box;
         background-color: white;
         border-radius: 8px;
-        width: 250px;
+        width: 275px;
         height: 150px;
         padding: 5px;
         animation: move 200ms;
@@ -154,22 +176,26 @@
         text-align: center;
     }
 
-    .remove-modal button {
-        margin: 5px;
-    }
-
     .btn-wrapper {
         display: block;
-        width: 140px;
-        margin: 10px auto 0px auto;
+        width: 100px;
+        margin: 12px auto 0px auto;
     }
 
-    .confirm-btn {
-        padding: 5px 7px 5px 7px;
+    .btn-wrapper .confirm-btn {
+        background: url('../Images/check\ icon.png') no-repeat;
+        background-size: cover;
+        background-color: #00e271;
+        width: 36px;
+        height: 36px;
+        margin-right: 20px;
+    }
+
+    .btn-wrapper .cancel-btn {
+        background: url('../Images/remove\ icon.png') no-repeat;
+        background-size: cover;
         background-color: #ff384b;
-    }
-
-    .cancel-btn {
-        padding: 5px 7px 5px 7px;
+        width: 36px;
+        height: 36px;
     }
 }

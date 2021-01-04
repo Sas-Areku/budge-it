@@ -7,7 +7,7 @@ export class Item extends React.Component {
         return (
             <div className="item">
                 <h3 className="item-label">{itemLabel}</h3>
-                <p className="item-value">${itemValue}</p>
+                <p className="item-value">${parseFloat(itemValue).toFixed(2)}</p>
             </div>
         )
     }

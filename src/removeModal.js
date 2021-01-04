@@ -12,14 +12,12 @@ export function RemoveModal(props) {
             className="confirm-btn" 
             onClick={(e) => props.confirmRemove(e)}
           >
-            Remove
           </button>
 
           <button 
             className="cancel-btn" 
             onClick={() => props.toggleRemove()}
           >
-            Cancel
           </button>
         </div>
       </div>
