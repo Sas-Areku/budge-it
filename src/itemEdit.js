@@ -41,6 +41,7 @@ export class ItemEdit extends React.Component {
                     <input
                         className="item-value-field" 
                         type="number" 
+                        step=".01"
                         value={itemValue}
                         onChange={(e) => this.props.editItemValue(e, id)}>
                     </input>

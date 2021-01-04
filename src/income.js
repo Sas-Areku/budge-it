@@ -161,6 +161,7 @@ export class Income extends React.Component {
                                     className="item-value-field" 
                                     placeholder="27.99"
                                     type="number"
+                                    step=".01"
                                     value={this.state.itemValue}
                                     onChange={this.updateItemValue}>
                                 </input>
