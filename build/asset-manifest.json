@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/budge-it/static/css/main.997087d2.chunk.css",
-    "main.js": "/budge-it/static/js/main.d4ece3a8.chunk.js",
-    "main.js.map": "/budge-it/static/js/main.d4ece3a8.chunk.js.map",
+    "main.js": "/budge-it/static/js/main.b0dd691f.chunk.js",
+    "main.js.map": "/budge-it/static/js/main.b0dd691f.chunk.js.map",
     "runtime-main.js": "/budge-it/static/js/runtime-main.f8f64048.js",
     "runtime-main.js.map": "/budge-it/static/js/runtime-main.f8f64048.js.map",
     "static/js/2.0b54e3e3.chunk.js": "/budge-it/static/js/2.0b54e3e3.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.f8f64048.js",
     "static/js/2.0b54e3e3.chunk.js",
     "static/css/main.997087d2.chunk.css",
-    "static/js/main.d4ece3a8.chunk.js"
+    "static/js/main.b0dd691f.chunk.js"
   ]
 }

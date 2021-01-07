@@ -1,6 +1,7 @@
 .spending {
     width: 100%;
     height: 80px;
+    text-align: center;
     background-color: #00fa7f;
     border: 1px solid #ccc;
     border-radius: var(--radius);
@@ -11,14 +12,13 @@
 }
 
 .spending h3 {
-    text-align: center;
-    font-weight: 500;
-    font-size: 14pt;
+    font-weight: 400;
+    font-size: 12pt;
+    margin-top: 2px;
 }
 
 .spending p {
-    text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18pt;
 }
 
