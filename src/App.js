@@ -121,7 +121,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
 
-      <div className="header">
+      <div className="header" id="header">
         <h1 className="title">Budge-it!</h1>
         <button 
           className={theme.mode === 'dark' ? "theme-btn light" : "theme-btn dark"} 

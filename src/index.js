@@ -15,6 +15,16 @@ Array.prototype.sum = function (c) {
   return total
 }
 
+// Shrink header when scroll
+let headerAnimation = () => {
+    const header = document.getElementById("header")
+    var scrollPos = document.documentElement.scrollTop || document.scrollTop
+
+    header.style.height = "130" - scrollPos + "px"
+}
+
+document.body.onscroll = () => headerAnimation()
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
