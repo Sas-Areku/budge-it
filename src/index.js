@@ -15,7 +15,7 @@ Array.prototype.sum = function (c) {
   return total
 }
 
-// Shrink header when scroll
+// Resize header when scroll
 let headerAnimation = () => {
     const header = document.getElementById("header")
     var scrollPos = document.documentElement.scrollTop || document.scrollTop
